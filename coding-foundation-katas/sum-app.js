@@ -8,7 +8,7 @@ class SumApp {
   getSum() {
     let sum = 0;
     for (let i = 0; i < this.numbers.length; i++) {
-      sum = sum + this.numbers[i];
+      sum += this.numbers[i];
     }
     return sum;
   }
