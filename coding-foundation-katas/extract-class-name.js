@@ -3,27 +3,82 @@ function extractClassName(sessionTitle) {
   let result = "";
 
   const month = [
-    "January",
-    "Januar",
-    "February",
-    "Februar",
-    "March",
-    "März",
-    "Maerz",
-    "April",
-    "May",
-    "Mai",
-    "June",
-    "Juni",
-    "July",
-    "Juli",
-    "August",
-    "September",
-    "October",
-    "Oktober",
-    "November",
-    "December",
-    "Dezember",
+    {
+      name: "Januar",
+      id: "1",
+    },
+    {
+      name: "Februar",
+      id: "2",
+    },
+    {
+      name: "March",
+      id: "3",
+    },
+    {
+      name: "März",
+      id: "3",
+    },
+    {
+      name: "Maerz",
+      id: "3",
+    },
+    {
+      name: "April",
+      id: "4",
+    },
+    {
+      name: "Mai",
+      id: "5",
+    },
+    {
+      name: "May",
+      id: "5",
+    },
+    {
+      name: "June",
+      id: "6",
+    },
+    {
+      name: "Juni",
+      id: "6",
+    },
+    {
+      name: "July",
+      id: "7",
+    },
+    {
+      name: "Juli",
+      id: "7",
+    },
+    {
+      name: "August",
+      id: "8",
+    },
+    {
+      name: "September",
+      id: "9",
+    },
+    {
+      name: "October",
+      id: "10",
+    },
+    {
+      name: "Oktober",
+      id: "10",
+    },
+    {
+      name: "November",
+      id: "11",
+    },
+    {
+      name: "December",
+      id: "12",
+    },
+    {
+      name: "Dezember",
+      id: "12",
+    },
   ];
 
   if (!sessionTitle.includes("Class")) {
@@ -35,8 +90,9 @@ function extractClassName(sessionTitle) {
     } else {
       return null;
     }
-    if (month.includes(date[1])) {
-      let monthNumber = getMonthFromString(date[1]);
+    let monthFound = month.find((e) => e.name === date[1]);
+    if (monthFound) {
+      let monthNumber = monthFound.id;
       if (monthNumber <= "9") {
         result = date[0] + "-" + "0" + monthNumber;
       }
@@ -46,6 +102,7 @@ function extractClassName(sessionTitle) {
   }
   return result;
 }
+
 function isNumber(value) {
   const conv = +value;
   if (conv) {
@@ -53,7 +110,4 @@ function isNumber(value) {
   } else {
     return false;
   }
-}
-function getMonthFromString(mon) {
-  return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1;
 }
