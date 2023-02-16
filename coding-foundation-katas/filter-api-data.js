@@ -1,6 +1,6 @@
 function filterApiData(apiData, mandatoryKeys) {
   // Add you solution here
-  let result = [];
+  const result = [];
   for (let i = 0; i < apiData.length; i++) {
     const entriesKeys = Object.keys(apiData[i]);
     let allKeysFound = true;
